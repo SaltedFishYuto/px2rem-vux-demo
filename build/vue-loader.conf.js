@@ -18,5 +18,15 @@ module.exports = {
     source: 'src',
     img: 'src',
     image: 'xlink:href'
-  }
+  },
+  postcss: [
+    require('postcss-plugin-px2rem')({
+      rootValue: 375,
+      selectorBlackList: ['html'],
+      mediaQuery: true
+    }),
+    require('autoprefixer')({
+      browsers: ['iOS >= 7', 'Android >= 4.1']
+    })
+  ]
 }
